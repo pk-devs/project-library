@@ -418,7 +418,7 @@ const fav = document.getElementById("fav")
 const filterDropdown = document.getElementById("filterDropdown")
 const highestRating = document.getElementById("highestRating")
 const lowestRating = document.getElementById("lowestRating")
-
+const age = document.getElementById("age")
 
 // Load all books at start
 
@@ -461,21 +461,33 @@ const filterBooks = () => {
 
 // Filter books by rating , Cannot get it to work! Asked for help in code-help
 
+
 const sortHighRating = () => {
   const sortRating = books.sort((a,b) => b.rating - a.rating)
   console.log(sortRating)
-  // container.innerHTML = ""
-  // document.getElementById("container").innerHTML = sortRating
-  // return sortRating.content.firstElementChild
+
+  container.innerHTML = ""
+  document.getElementById("container").innerHTML = sortRating
+  return loadBooks(sortRating)
 }
-
-
 
 const sortLowRating = () => {
   const sortRating = books.sort((a,b) => a.rating - b.rating)
   console.log(sortRating)
-  document.getElementById("container").innerHTML = loadBooks(sortRating)
+  container.innerHTML = ""
+  document.getElementById("container").innerHTML = sortRating
+  return loadBooks(sortRating)
  }
+
+
+// Filter by age
+
+const sortAge = () => {
+  const sortedAge = books.sort((a,b) => a.year - b.year)
+  container.innerHTML = ""
+  document.getElementById("container").innerHTML = sortedAge
+  return loadBooks(sortedAge)
+}
 
 
 // Add favorite book 
@@ -498,7 +510,8 @@ loadFav(books)
 // Listen to the dropdown in order to display the selection
 
 filterDropdown.addEventListener("change", filterBooks)
-highestRating.addEventListener("change", sortHighRating)
-lowestRating.addEventListener("change", sortLowRating)
+highestRating.addEventListener("click", sortHighRating)
+lowestRating.addEventListener("click", sortLowRating)
+age.addEventListener("click", sortAge)
 
 loadBooks(books)
