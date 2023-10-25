@@ -71,7 +71,7 @@ const books = [
     rating: 4.7,
     description:
       'The first book in the beloved Harry Potter series, it introduces readers to the magical world of Hogwarts and the young wizard Harry Potter.',
-    image: "./books-images/harry-potter-and-the-sorcerer'.jpg"
+    image: "./books-images/unknown.jpg"
 
   },
   {
@@ -440,7 +440,7 @@ const loadBooks = (books) => {
     <br>
     <p> ${book.description} </p>
     <br>
-    <button onclick="addToFav('${book.title}')"> Add to favorite list</button>
+    <button onClick="addToFav('${book.title}')"> Add to favorite list</button>
     </div> 
     `
   })
@@ -464,36 +464,36 @@ const filterBooks = () => {
 const sortHighRating = () => {
   const sortRating = books.sort((a,b) => b.rating - a.rating)
   console.log(sortRating)
-  document.getElementById("container") = highestRating
-
-  container.innerHTML = loadBooks(sortRating)
+  // container.innerHTML = ""
+  // document.getElementById("container").innerHTML = sortRating
+  // return sortRating.content.firstElementChild
 }
+
+
 
 const sortLowRating = () => {
   const sortRating = books.sort((a,b) => a.rating - b.rating)
   console.log(sortRating)
-  document.getElementById("container") = lowestRating
-  loadBooks(sortRating)
-}
+  document.getElementById("container").innerHTML = loadBooks(sortRating)
+ }
 
 
 // Add favorite book 
 
 const loadFav = () => {
   fav.innerHTML = ""
-  favBooks.innerHTML += 
+  fav.innerHTML += 
   `
-  <h2> This is your list of favorite books</h2>
+  <h2> This is your list of favorite books </h2>
   <p> ${favBooks} </p>
   `
 }
 
 const addToFav = (books) => {
   favBooks.push(books)
-  loadFav
+  
 }
-
-
+loadFav(books)
 
 // Listen to the dropdown in order to display the selection
 
@@ -502,8 +502,3 @@ highestRating.addEventListener("change", sortHighRating)
 lowestRating.addEventListener("change", sortLowRating)
 
 loadBooks(books)
-loadFav(favBooks)
-
-// const rating = books.rating;
-// books.rating.sort()
-
