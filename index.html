@@ -12,7 +12,6 @@
   <!-- Don't forget to connect the JavaScript file -->
   <div class="search-bar">
     <select name="filterGenre" class="filter-genre" id="filterDropdown">
-      <option value="">Select your genre</option>
       <option value="all">All</option>
       <option value="Fiction">Fiction</option>
       <option value="Science Fiction">Science Fiction</option>
@@ -21,15 +20,21 @@
       <option value="Horror">Horror</option>
       <option value="Mystery">Mystery</option>
       <option value="Dystopian">Dystopian</option>
-      
+    </select>
+
       <input class="search" type="text" placeholder="Search...">
 
-    </select>
+      <button onClick="sortHighRating()" class="sort-button" id="highestRating"> Sort by highest rating</button>
+      <button onClick="sortLowRating()" class="sort-button" id="lowestRating">Sort by lowest rating </button>
+
+     
 
    
 
   </div>
   <div class="container" id="container"></div>
+
+
   <div id="fav"></div>
 <script src="./script.js"></script>
 </body>

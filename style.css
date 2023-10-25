@@ -21,6 +21,12 @@ h1 {
 .search  {
     margin-left: 2%;
     padding: 10px;
+    padding-right: 50px;
+}
+
+.sort-button  {
+    margin-left: 2%;
+    padding: 10px;
 }
 
 .container {

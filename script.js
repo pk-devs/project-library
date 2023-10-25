@@ -416,26 +416,31 @@ const favBooks = []
 const container = document.getElementById("container")
 const fav = document.getElementById("fav")
 const filterDropdown = document.getElementById("filterDropdown")
+const highestRating = document.getElementById("highestRating")
+const lowestRating = document.getElementById("lowestRating")
 
-// Load all books at start 
+
+// Load all books at start
 
 const loadBooks = (books) => {
   container.innerHTML = ""
   
+  // Create card that should be inserted
   books.forEach((book) => {
     container.innerHTML += 
     `
     <div class="card"> 
     <h3 class="title"> ${book.title} </h3>
     <img class="card-img" src=${book.image}>
-    <h3> Written by ${book.author} </h3>
-    <h3> Genre: ${book.genre} </h3>
-    <h3> Published: ${book.year} </h3>
-    <h3> Rating: ${book.rating} </h3>
+    <p> Written by ${book.author} </p>
     <br>
-    <p> Description: ${book.description} </p>
+    <p> <strong>Genre:</strong> ${book.genre} </p>
+    <p> <strong>Published:</strong> ${book.year} </p>
+    <p> <strong>Rating:</strong> ${book.rating} </p>
     <br>
-    <button onclick="AddToFav('${book.title}')"> Add to favorite list</button>
+    <p> ${book.description} </p>
+    <br>
+    <button onclick="addToFav('${book.title}')"> Add to favorite list</button>
     </div> 
     `
   })
@@ -454,26 +459,51 @@ const filterBooks = () => {
    }
 }
 
-// Filter books by rating 
+// Filter books by rating , Cannot get it to work! Asked for help in code-help
+
+const sortHighRating = () => {
+  const sortRating = books.sort((a,b) => b.rating - a.rating)
+  console.log(sortRating)
+  document.getElementById("container") = highestRating
+
+  container.innerHTML = loadBooks(sortRating)
+}
+
+const sortLowRating = () => {
+  const sortRating = books.sort((a,b) => a.rating - b.rating)
+  console.log(sortRating)
+  document.getElementById("container") = lowestRating
+  loadBooks(sortRating)
+}
+
 
 // Add favorite book 
-
-const addToFav = (books) => {
-  favBooks.push(books)
-  loadFav
-}
 
 const loadFav = () => {
   fav.innerHTML = ""
   favBooks.innerHTML += 
   `
   <h2> This is your list of favorite books</h2>
-  <p> ${books} </p>
+  <p> ${favBooks} </p>
   `
 }
+
+const addToFav = (books) => {
+  favBooks.push(books)
+  loadFav
+}
+
+
 
 // Listen to the dropdown in order to display the selection
 
 filterDropdown.addEventListener("change", filterBooks)
+highestRating.addEventListener("change", sortHighRating)
+lowestRating.addEventListener("change", sortLowRating)
 
 loadBooks(books)
+loadFav(favBooks)
+
+// const rating = books.rating;
+// books.rating.sort()
+
