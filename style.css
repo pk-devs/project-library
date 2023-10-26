@@ -11,10 +11,15 @@ h1 {
 
 .search-bar {
     background: red;
+    padding: 20px;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 
 }
 .filter-genre  {
-    margin-left: 25%;
+   margin-left: 50px;
     padding: 10px;
 }
 
@@ -59,3 +64,11 @@ padding: 100px 100px 100px 100px;
     text-align: center;
     
   }
+
+  .bar-year {
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0px 15px 15px;
+  }
+
+ 
