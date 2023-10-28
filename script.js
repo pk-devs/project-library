@@ -262,7 +262,7 @@ const sortLowRating = () => {
  }
 
 
-// Filter by age, How can I use only one button? Same question for rating
+// Filter by age, How can I use only one button? Same question for rating. How can I code so both age and rating filter should be applied on array?
 
 const sortAgeOldest = () => {
   const sortedAge = books.sort((a,b) => a.year - b.year)
