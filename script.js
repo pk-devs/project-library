@@ -2,6 +2,8 @@
 If you choose to create your own arrays with elements, just make sure that some
 of the properties make sense to filter on, and some to sort on.*/
 
+// Questions on line 191 
+
 const books = [
   {
     title: 'The Great Gatsby',
@@ -187,6 +189,8 @@ const books = [
 ]
 
 // Some of these references are not needed, why? I can comment out e.g age and it still works in the app. Curious to know why :)
+// More questions on line: 251
+
 
 const container = document.getElementById("container")
 const filterDropdown = document.getElementById("filterDropdown")
@@ -235,7 +239,7 @@ const filterBooks = () => {
    if (value === "all") {
     loadBooks(books)
    } else {
-    const filteredList = books.filter((book)=> book.genre === value)
+    const filteredList = books.filter((book) => book.genre === value)
     return loadBooks(filteredList)
    }
 }
